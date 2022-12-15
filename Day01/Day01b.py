@@ -13,6 +13,6 @@ if __name__ == '__main__':
             buffer = 0
         single_elf_cal.sort()
     print(single_elf_cal)
-    print("Max 3 Calories:", single_elf_cal[-1]+single_elf_cal[-2]+single_elf_cal[-3])
+    print("Max 3 Calories:", sum(single_elf_cal[-3:]))
 
 
