@@ -1,5 +1,5 @@
 if __name__ == '__main__':
-    with open('input.data') as f:
+    with open('input.data', encoding="utf-8", mode="rt") as f:
         numbers_string  = f.readlines()
     cal_list = list()
     single_elf = list()
