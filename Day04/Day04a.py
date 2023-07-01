@@ -1,16 +1,9 @@
 import re
 
 
-def check_list_contained(A, B):
-    # convert list A to string
-    A_str = ' '.join(map(str, A))
-    # convert list B to string
-    B_str = ' '.join(map(str, B))
-    # find all instances of A within B
-    instances = re.findall(A_str, B_str)
-
-    # return True if any instances were found, False otherwise
-    return len(instances) > 0
+def removeElements(A, B):
+    n = len(A)
+    return any(A == B[i:i + n] for i in range(len(B)-n + 1))
 
 if __name__ == '__main__':
     with open('input.data', encoding="utf-8", mode="rt") as f:
@@ -25,13 +18,10 @@ if __name__ == '__main__':
         rangeA = list(range(int(rangeAstart), int(rangeAend)+1))
         rangeB = list(range(int(rangeBstart), int(rangeBend)+1))
         if len(rangeB) > len(rangeA):
-            if check_list_contained(rangeA, rangeB) == False:
+            if removeElements(rangeA, rangeB):
                 contains += 1
         else:
-            if check_list_contained(rangeB, rangeA) == False:
+            if removeElements(rangeB, rangeA):
                 contains += 1
-
-
-
     print(contains)
     print(count)
